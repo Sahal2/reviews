@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{%url 'dashboard' %}">HOME</a>
+    <h1>User Alias: {{users.0}} </h1>
+    <p>Name: {{users.1}}</p>
+    <p>Email: {{users.2}}</p>
+    <p>Total Reviews: {{books|length}}</p>
+    <h2>Posted Reviews on the following books:</h2>
+    {% for book in books %}
+        {{book}}
+    {% endfor %}
+</body>
+</html>
