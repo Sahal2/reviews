@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+        {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    
+    <link rel="stylesheet" href="{% static 'admin/css/bootstrap.min.css'%}">
+<script src="{% static 'admin/js/jquery.min.js'%}"></script>
+<script src="{% static 'admin/js/bootstrap.min.js'%}"></script>
 </head>
+
+
+<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="#">BOOKCLUB</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-plus"></span> Add a new book and review</a></li>
+              <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      
 <body>  
         
-        <a href="{% url 'add_book' %}">Add a new book and review</a>
-        <a href="{% url 'logout' %}">logout</a>
     {% for review in reviews %}
       <p> <a href="{% url 'show_book' id=review.5 %}">{{review.1}}</a> </p>
       <p>{{review.3}}</p>
