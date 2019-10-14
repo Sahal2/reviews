@@ -23,7 +23,6 @@
             <a class="navbar-brand" href="#">BOOKCLUB</a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-plus"></span> Add a new book and review</a></li>
               <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
@@ -32,7 +31,8 @@
         </div>
       </nav>
 
-      
+
+
 <body>  
         
     {% for review in reviews %}
