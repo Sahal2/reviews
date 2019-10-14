@@ -9,6 +9,9 @@ from ..belt.models import *
 def index(request):
     return render(request, "belt/index.html")
 
+def register(request):
+    return render(request, "belt/register.html")
+
 def login_user(request):
     passw_match, user_id = Users.objects.login(request.POST,request)
     print passw_match, user_id
