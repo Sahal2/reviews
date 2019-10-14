@@ -11,37 +11,44 @@
 <script src="{% static 'admin/js/bootstrap.min.js'%}"></script>
 </head>
 
-
-<nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>                        
-            </button>
-            <a class="navbar-brand" href="#">BOOKCLUB</a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-plus"></span> Add a new book and review</a></li>
-              <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+<div class="collapse bg-dark" id="navbarHeader">
+        <div class="container text-center">
+                    <ul class="nav navbar-nav navbar-right">
+                            <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-plus"></span> Add a new book and review</a></li>
+                            <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
-          </div>
         </div>
-      </nav>
-
+      </div>
+<div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+            <a class="navbar-brand" href="#">BOOKCLUB</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
 
 
 <body>  
-        
+    <div class="container text-left mt-5">
+    <div class="row justify-content-center">
     {% for review in reviews %}
-      <p> <a href="{% url 'show_book' id=review.5 %}">{{review.1}}</a> </p>
-      <p>{{review.3}}</p>
-      <p> <a href="{% url 'show_user' id=review.6 %}">{{review.0}}</a>  says : <p>{{review.2}}</p> </p>
-      <p>{{review.4}}</p>
-    {% endfor %}
+    
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Book Name: <a href="{% url 'show_book' id=review.5 %}">{{review.1}}</a></h5>
+                <p class="card-text">Reviewer <a href="{% url 'show_user' id=review.6 %}">{{review.0}}</a>  says : <p>{{review.2}}</p> </p>
+                <p>Rating: {{review.3}}</p>
+                <p>Date review: {{review.4}}</p>
+            </div>
+        </div>
+    </div>
 
+    {% endfor %}
+</div>
+    
+</div>
     <div>
         Books:
         {% for book in books.items %}
@@ -51,8 +58,6 @@
 
         
         </div>
-
-    
 
 </body>
 </html>
